@@ -12,11 +12,12 @@ public class UserService {
 	private final UserRepository userRepository;
 	private final PasswordEncoder passwordEncoder;
 	
-	public UserEntity create(String userName, String email, String password) {
+	
+	public UserEntity createUser(String userName, String email, String password) {
 		UserEntity user = new UserEntity();
-		user.setUserName(userName);
-		user.setEmail(email);
-		user.setPassword(passwordEncoder.encode(password));
+		user.setUserName(user.getUserName());
+		user.setEmail(user.getEmail());
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		this.userRepository.save(user);
 		return user;
 		
